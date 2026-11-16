@@ -39,23 +39,50 @@ const inputClear = (): void => {
 
 </script>
 <template>
-  <h2>{{ titel }}</h2>
-  <div class="search">
-    <el-input style="width: 240px" v-model="searchTerm" clearable placeholder="Enter a search term.."
+  <h2 class="search-title">{{ titel }}</h2>
+  <div class="search-bar">
+    <el-input v-model="searchTerm" class="search-bar__input" clearable placeholder="Enter a search term.."
       @clear="inputClear"></el-input>
-    <el-select style="width: 180px" v-model="selectedOptions" clearable multiple collapse-tags collapse-tags-tooltip
-      placeholder="Search options" :disabled="searchTerm.length < 1">
+    <el-select v-model="selectedOptions" class="search-bar__options" clearable multiple collapse-tags
+      collapse-tags-tooltip placeholder="Search options" :disabled="searchTerm.length < 1">
       <el-option v-for="item in searchOptions" :key="item.value" :label="item.label" :value="item.value"
         :selected="item.selected">
       </el-option>
     </el-select>
-    <el-button @click="onSearch" style="width: 120px" type="primary"
+    <el-button class="search-bar__button" @click="onSearch" type="primary"
       :disabled="searchTerm.length < 1">Search</el-button>
   </div>
 </template>
 <style scoped>
-.search {
+.search-title {
+  margin: 0 0 12px;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.search-bar {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
+}
+
+.search-bar__input {
+  flex: 1 1 260px;
+}
+
+.search-bar__options {
+  flex: 0 1 200px;
+}
+
+.search-bar__button {
+  flex: 0 0 120px;
+}
+
+@media (max-width: 600px) {
+
+  .search-bar__options,
+  .search-bar__button {
+    flex: 1 1 100%;
+  }
 }
 </style>
