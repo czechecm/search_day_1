@@ -2,7 +2,7 @@ import type { SordResult } from '@/composable/useSearch'
 import type { DataService } from '@/services/DataService'
 
 export class MockDataService implements DataService {
-  constructor(private readonly delayMs = 5000) {}
+  constructor(private readonly delayMs = 3000) {}
 
   async getData(): Promise<SordResult[]> {
     await new Promise((resolve) => setTimeout(resolve, this.delayMs))

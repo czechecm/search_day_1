@@ -14,7 +14,7 @@ export function useSearch(dataService: DataService = new MockDataService()) {
 
     isLoading.value = 1
 
-    await new Promise((resolve) => setTimeout(resolve, 5000))
+    await new Promise((resolve) => setTimeout(resolve, 2000))
 
     if (options.includes('Short name')) {
       const data: SordResult[] = await dataService.getData()
