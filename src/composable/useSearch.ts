@@ -5,13 +5,17 @@ import { ref } from 'vue'
 export function useSearch(dataService: DataService = new MockDataService()) {
   const result = ref<SordResult[]>([])
   const isLoading = ref(0)
-  const search = async (term: string): Promise<void> => {
+  const search = async (term: string, options: string[]): Promise<void> => {
+    console.log(`[useSearch] search term ${term}`)
     isLoading.value = 1
     const data = await dataService.getData()
     result.value = data
+    isLoading.value = 2
   }
 
-  return { result, isLoading, search }
+  const resetLoading = () => (isLoading.value = 0)
+
+  return { result, isLoading, search, resetLoading }
 }
 
 export type SordResult = {
