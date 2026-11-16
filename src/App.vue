@@ -1,11 +1,13 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import ResultComponent from '@/components/ResultComponent.vue'
+import SearchComponent from '@/components/SearchComponent.vue'
+import HistoryComponent from '@/components/HistoryComponent.vue'</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <h1>ELO Search</h1>
+  <ResultComponent></ResultComponent>
+  <SearchComponent></SearchComponent>
+  <HistoryComponent></HistoryComponent>
 </template>
 
 <style scoped></style>
