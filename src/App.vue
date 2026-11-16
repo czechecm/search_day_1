@@ -12,7 +12,7 @@ const { result, isLoading, resetLoading, search } = useSearch()
   <h1>ELO Search</h1>
   <SearchComponent titel="ELO Search" @resetLoading="resetLoading" @search="search"></SearchComponent>
   <ResultComponent :result="result" :isLoading="isLoading"></ResultComponent>
-  <HistoryComponent></HistoryComponent>
+  <HistoryComponent :hits="result.length"></HistoryComponent>
 </template>
 
 <style scoped></style>
